@@ -138,9 +138,13 @@ fev_data \<- read_csv(here("data/fev.csv"))
 To read in a file that is saved in the same directory as the .Rproj
 file:
 
-```{r warning=FALSE}
+```{r here, message=TRUE, warning=TRUE, include=FALSE}
 library(here)
- fev_data <- read_csv(here("01_Input/fev.csv"))
+# Include = False because otherwise my personal innformation would show...
+```
+
+```{r fev}
+fev_data <- read_csv(here("01_Input/fev.csv"))
  fev_data
 ```
 
