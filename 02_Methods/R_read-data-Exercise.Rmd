@@ -1,6 +1,7 @@
 ---
 title: "Basic R and how to read in data"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 editor_options:
@@ -137,17 +138,25 @@ fev_data \<- read_csv(here("data/fev.csv"))
 To read in a file that is saved in the same directory as the .Rproj
 file:
 
-```{r}
+```{r warning=FALSE}
 library(here)
-fev_data <- read_csv(here("fev.csv"))
+fev_data <- read_csv(here("01_Input/01-Raw_Data/fev.csv"))
+fev_data
 ```
 
 (Remember to install the "here" package the first time.)
 
 --\> How would you use read_csv with the pipe operator?
 
-```{r}
-# Add your code here!
+```{r warning=FALSE}
+# This was a very weird no, no, no, YES! Trial and error process.
+
+fev_data <-
+"01_Input/01-Raw_Data/fev.csv" %>% here() %>% read_csv()
+
+# Testing to see if the file was read properly.
+
+# fev_data
 ```
 
 Look at the top few rows of the data:
@@ -178,7 +187,11 @@ sheet!) There is a text file in your dataset so you can practice:
 psa.txt
 
 ```{r}
-# Add your code here!
+psa_data <-
+  "01_Input/01-Raw_Data/psa.txt" %>% here() %>% read_table()
+
+# Testing to see that function works.
+# psa_data
 ```
 
 --\> Have a look at the "Useful arguments" section of the data import
@@ -186,13 +199,16 @@ cheat sheet. Use a few of them when you read in fev.csv and look at the
 data, is that what you expected?
 
 ```{r}
-# Add your code here!
+# Not sure what code is supposed to go here.
+# The viewing files in R Markdown is 'cleaner' experience than I expected.
 ```
 
 --\> Apply the summary function to a tibble. What does it do?
 
 ```{r}
-# Add your code here!
+# It displays statistically notable facts about the values in every column of data.
+summary(fev_data)
+summary(psa_data)
 ```
 
 ### Operating on data: columns
