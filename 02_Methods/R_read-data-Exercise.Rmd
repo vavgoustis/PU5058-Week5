@@ -140,8 +140,8 @@ file:
 
 ```{r warning=FALSE}
 library(here)
-fev_data <- read_csv(here("01_Input/01-Raw_Data/fev.csv"))
-fev_data
+ fev_data <- read_csv(here("01_Input/fev.csv"))
+ fev_data
 ```
 
 (Remember to install the "here" package the first time.)
@@ -149,14 +149,10 @@ fev_data
 --\> How would you use read_csv with the pipe operator?
 
 ```{r warning=FALSE}
-# This was a very weird no, no, no, YES! Trial and error process.
+# This was a very weird "no, no, no, YES!" trial-and-error process.
 
 fev_data <-
-"01_Input/01-Raw_Data/fev.csv" %>% here() %>% read_csv()
-
-# Testing to see if the file was read properly.
-
-# fev_data
+"01_Input/fev.csv" %>% here() %>% read_csv()
 ```
 
 Look at the top few rows of the data:
@@ -188,10 +184,7 @@ psa.txt
 
 ```{r}
 psa_data <-
-  "01_Input/01-Raw_Data/psa.txt" %>% here() %>% read_table()
-
-# Testing to see that function works.
-# psa_data
+  "01_Input/psa.txt" %>% here() %>% read_table()
 ```
 
 --\> Have a look at the "Useful arguments" section of the data import
@@ -199,8 +192,8 @@ cheat sheet. Use a few of them when you read in fev.csv and look at the
 data, is that what you expected?
 
 ```{r}
-# Not sure what code is supposed to go here.
-# The viewing files in R Markdown is 'cleaner' experience than I expected.
+# Yes it works as expected.
+read_csv(here("01_Input/fev.csv"), col_select = c(subjid, age, height))
 ```
 
 --\> Apply the summary function to a tibble. What does it do?
